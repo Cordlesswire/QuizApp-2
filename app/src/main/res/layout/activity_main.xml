@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.quizapp.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageViewCornerTL"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_left_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewCornerTR"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_right_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewCornerBL"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/bottom_left_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewCornerBR"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/bottom_right_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewTopBorder"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewCornerTL"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewCornerTR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewBottomBorder"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewCornerBL"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewCornerBR"
+        app:srcCompat="@drawable/bottom_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewLeftBorder"
+        android:layout_width="24dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewCornerBL"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCornerTL"
+        app:srcCompat="@drawable/left_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewRightBorder"
+        android:layout_width="24dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewCornerBR"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCornerTR"
+        app:srcCompat="@drawable/right_border"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewBoard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBottomBorder"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewLeftBorder"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewRightBorder"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder"
+        app:layout_constraintVertical_bias="0.591"
+        app:srcCompat="@drawable/blackboard"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewQuizTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerTL"
+        app:layout_constraintRight_toRightOf="@+id/imageViewCornerTR"
+        app:layout_constraintTop_toTopOf="@+id/imageViewTopBorder"
+        app:srcCompat="@drawable/quiz_title"
+        tools:ignore="ContentDescription" />
+
+</android.support.constraint.ConstraintLayout>
