@@ -1,145 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.android.quizapp.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageViewCornerTL"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_left_border"
-        tools:ignore="ContentDescription" />
+    <data>
+        <import type="com.example.android.quizapp.MainActivity.CountGenerator"/>
+        <variable
+            name="counter"
+            type="CountGenerator" />
+    </data>
 
-    <ImageView
-        android:id="@+id/imageViewCornerTR"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_right_border"
-        tools:ignore="ContentDescription" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.android.quizapp.MainActivity">
 
-    <ImageView
-        android:id="@+id/imageViewCornerBL"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/bottom_left_border"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewCornerTL"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top_left_border"
+            tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/imageViewCornerBR"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/bottom_right_border"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewCornerTR"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top_right_border"
+            tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/imageViewTopBorder"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintLeft_toRightOf="@+id/imageViewCornerTL"
-        app:layout_constraintRight_toLeftOf="@+id/imageViewCornerTR"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_border"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewCornerBL"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:srcCompat="@drawable/bottom_left_border"
+            tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/imageViewBottomBorder"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/imageViewCornerBL"
-        app:layout_constraintRight_toLeftOf="@+id/imageViewCornerBR"
-        app:srcCompat="@drawable/bottom_border"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewCornerBR"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/bottom_right_border"
+            tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/imageViewLeftBorder"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewCornerBL"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCornerTL"
-        app:srcCompat="@drawable/left_border"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewTopBorder"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:scaleType="fitXY"
+            app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerTL"
+            app:layout_constraintRight_toRightOf="@+id/imageViewCornerTR"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top_border"
+            tools:ignore="ContentDescription"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-    <ImageView
-        android:id="@+id/imageViewRightBorder"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewCornerBR"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCornerTR"
-        app:srcCompat="@drawable/right_border"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewBottomBorder"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerBL"
+            app:layout_constraintRight_toRightOf="@+id/imageViewCornerBR"
+            app:srcCompat="@drawable/bottom_border"
+            tools:ignore="ContentDescription"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-    <ImageView
-        android:id="@+id/imageViewBoard"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewBottomBorder"
-        app:layout_constraintLeft_toRightOf="@+id/imageViewLeftBorder"
-        app:layout_constraintRight_toLeftOf="@+id/imageViewRightBorder"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder"
-        app:layout_constraintVertical_bias="0.591"
-        app:srcCompat="@drawable/blackboard"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewLeftBorder"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewCornerBL"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewCornerTL"
+            app:srcCompat="@drawable/left_border"
+            tools:ignore="ContentDescription"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-    <ImageView
-        android:id="@+id/imageViewQuizTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerTL"
-        app:layout_constraintRight_toRightOf="@+id/imageViewCornerTR"
-        app:layout_constraintTop_toTopOf="@+id/imageViewTopBorder"
-        app:srcCompat="@drawable/quiz_title"
-        tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/imageViewRightBorder"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewCornerBR"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewCornerTR"
+            app:srcCompat="@drawable/right_border"
+            tools:ignore="ContentDescription"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-</android.support.constraint.ConstraintLayout>
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/blackboard"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewBottomBorder"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/imageViewLeftBorder"
+            app:layout_constraintRight_toLeftOf="@+id/imageViewRightBorder"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q1_title"
+                    style="@style/QuestionTitle"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="32dp"
+                    android:text="@string/question_1" />
+
+                <TextView
+                    android:id="@+id/q_question"
+                    style="@style/QuestionRow"
+                    android:text="Hello" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/white" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/imageViewQuizTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginLeft="96dp"
+            android:layout_marginRight="96dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerTL"
+            app:layout_constraintRight_toRightOf="@+id/imageViewCornerTR"
+            app:layout_constraintTop_toTopOf="@+id/imageViewTopBorder"
+            app:srcCompat="@drawable/quiz_title"
+            tools:ignore="ContentDescription"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

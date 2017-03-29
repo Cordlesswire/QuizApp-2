@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="quiz_item_horz_margin">16dp</dimen>
+    <dimen name="quiz_item_vert_margin">16dp</dimen>
+    <dimen name="quiz_title_top_margin">32dp</dimen>
+    <dimen name="quiz_title_bottom_margin">16dp</dimen>
+
+</resources>
