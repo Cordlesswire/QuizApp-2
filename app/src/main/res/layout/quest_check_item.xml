@@ -3,18 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:background="@drawable/blackboard">
 
 
-    <EditText
-        android:id="@+id/editText"
-        style="@style/QuestionRow"
+    <RadioGroup
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            style="@style/QuestionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="CheckBox" />
+
+    </RadioGroup>
+
 </android.support.constraint.ConstraintLayout>
