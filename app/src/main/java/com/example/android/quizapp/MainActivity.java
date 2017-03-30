@@ -13,39 +13,58 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 3/29/17 10:05 PM
+ * Last modified 3/30/17 6:19 PM
  */
 
 package com.example.android.quizapp;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.database.DatabaseUtilsCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.android.quizapp.databinding.ActivityMainBinding;
+import com.example.android.quizapp.databinding.QuestItemBinding;
+
+import static android.view.View.inflate;
 
 public class MainActivity extends AppCompatActivity {
-    public class CountGenerator {
-        private int counter = 0;
-
-        public String init() {
-            counter = 0;
-            return "" + counter;
-        }
-
-        public String next() {
-            counter += 1;
-            return "" + counter;
-        }
-    }
+    private ActivityMainBinding mMainBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setCounter(new CountGenerator());
-        //setContentView(R.layout.activity_main);
+
+        mMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        QuestItemBinding itemBinding = DataBindingUtil.inflate(getLayoutInflater(),
+                R.layout.quest_item, mMainBinding.layoutQuestList, true);
+
+        itemBinding.questID.setText("1.");
+        itemBinding.questTitle.setText("Question #1");
+
+        itemBinding = DataBindingUtil.inflate(getLayoutInflater(),
+                R.layout.quest_item, mMainBinding.layoutQuestList, true);
+
+        itemBinding.questID.setText("2.");
+        itemBinding.questTitle.setText("Question #2");
+
+        /*View newItem = View.inflate(getBaseContext(), R.layout.quest_item, mMainBinding.layoutQuestList);
+        ((TextView) newItem.findViewById(R.id.questID)).setText("1");
+        ((TextView) newItem.findViewById(R.id.questTitle)).setText("Question #1");
+
+        View newItem1 = View.inflate(getBaseContext(), R.layout.quest_item, mMainBinding.layoutQuestList);
+        ((TextView) newItem1.findViewById(R.id.questID)).setText("2");
+        ((TextView) newItem1.findViewById(R.id.questTitle)).setText("Question #2");
+
+        View newItem2 = View.inflate(getBaseContext(), R.layout.quest_item, mMainBinding.layoutQuestList);
+        ((TextView) newItem2.findViewById(R.id.questID)).setText("3");
+        ((TextView) newItem2.findViewById(R.id.questTitle)).setText("Question #3");*/
+
     }
 }

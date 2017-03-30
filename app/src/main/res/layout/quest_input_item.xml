@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/QuestionRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:background="@drawable/blackboard">
-
-
-    <EditText
-        android:id="@+id/editText"
-        style="@style/QuestionRow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name" />
-</android.support.constraint.ConstraintLayout>
+    android:inputType="text" />

@@ -4,13 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <import type="com.example.android.quizapp.MainActivity.CountGenerator"/>
-        <variable
-            name="counter"
-            type="CountGenerator" />
-    </data>
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -119,41 +112,17 @@
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
             android:background="@drawable/blackboard"
             app:layout_constraintBottom_toTopOf="@+id/imageViewBottomBorder"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/imageViewLeftBorder"
             app:layout_constraintRight_toLeftOf="@+id/imageViewRightBorder"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder">
 
             <LinearLayout
+                android:id="@+id/layout_quest_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/q1_title"
-                    style="@style/QuestionTitle"
-                    android:paddingBottom="16dp"
-                    android:paddingTop="32dp"
-                    android:text="@string/question_1" />
-
-                <TextView
-                    android:id="@+id/q_question"
-                    style="@style/QuestionRow"
-                    android:text="Hello" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/white" />
-
             </LinearLayout>
         </ScrollView>
 
