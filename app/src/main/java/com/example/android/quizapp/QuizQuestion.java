@@ -19,14 +19,17 @@
 package com.example.android.quizapp;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Class specification for Quiz Question
  */
-public class QuizQuestion {
+public class QuizQuestion implements Iterable<QuestAnswer> {
+    private String mQuestion;
     private ArrayList<QuestAnswer> mAnswers;
 
-    public QuizQuestion() {
+    public QuizQuestion(String question) {
+        mQuestion = question;
         mAnswers = new ArrayList<>();
     }
 
@@ -39,6 +42,14 @@ public class QuizQuestion {
     }
 
     /**
+     * Gets question string
+     * @return -
+     */
+    public String getQuestion() {
+        return mQuestion;
+    }
+
+    /**
      * Checks for the question to be answered correctly
      * @return
      */
@@ -48,5 +59,10 @@ public class QuizQuestion {
             result &= qa.isCorrect();
         }
         return result;
+    }
+
+    @Override
+    public Iterator<QuestAnswer> iterator() {
+        return mAnswers.iterator();
     }
 }

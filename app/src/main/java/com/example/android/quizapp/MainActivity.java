@@ -18,53 +18,141 @@
 
 package com.example.android.quizapp;
 
-import android.animation.ObjectAnimator;
-import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.android.quizapp.databinding.ActivityMainBinding;
-import com.example.android.quizapp.databinding.QuestItemBinding;
 
-import static android.view.View.inflate;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding mMainBinding;
+    private ArrayList<QuizQuestion> mQuestions;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        // Load questions
+        mQuestions = new ArrayList<>();
+        loadTestQuestions();
 
-        QuestItemBinding itemBinding = DataBindingUtil.inflate(getLayoutInflater(),
-                R.layout.quest_item, mMainBinding.layoutQuestList, true);
+/***********************************************************************************************/
+        setContentView(R.layout.activity_main);
 
-        itemBinding.questID.setText("1.");
-        itemBinding.questTitle.setText("Question #1");
+        LinearLayout itemList = (LinearLayout) findViewById(R.id.layoutQuestList);
 
-        itemBinding = DataBindingUtil.inflate(getLayoutInflater(),
-                R.layout.quest_item, mMainBinding.layoutQuestList, true);
+        /* 1 */
+        EditText editText = (EditText) getLayoutInflater().inflate(R.layout.test_item, null);
 
-        itemBinding.questID.setText("2.");
-        itemBinding.questTitle.setText("Question #2");
+        View item = getLayoutInflater().inflate(R.layout.quest_item, null);
+        LinearLayout answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
+        answerList.addView(editText);
 
-        /*View newItem = View.inflate(getBaseContext(), R.layout.quest_item, mMainBinding.layoutQuestList);
-        ((TextView) newItem.findViewById(R.id.questID)).setText("1");
-        ((TextView) newItem.findViewById(R.id.questTitle)).setText("Question #1");
+        itemList.addView(item);
 
-        View newItem1 = View.inflate(getBaseContext(), R.layout.quest_item, mMainBinding.layoutQuestList);
-        ((TextView) newItem1.findViewById(R.id.questID)).setText("2");
-        ((TextView) newItem1.findViewById(R.id.questTitle)).setText("Question #2");
+        /* 2. Right Sequence */
+        /* 2.1. Inflate row */
+        editText = (EditText) getLayoutInflater().inflate(R.layout.test_item, null);
 
-        View newItem2 = View.inflate(getBaseContext(), R.layout.quest_item, mMainBinding.layoutQuestList);
-        ((TextView) newItem2.findViewById(R.id.questID)).setText("3");
-        ((TextView) newItem2.findViewById(R.id.questTitle)).setText("Question #3");*/
+        /* 2.2. Inflate row container*/
+        item = getLayoutInflater().inflate(R.layout.quest_item, null);
+        ((TextView) (item.findViewById(R.id.questID))).setText("2.");
+        ((TextView) (item.findViewById(R.id.questTitle))).setText("Second item");
 
+        /* 2.3. Add row to row container*/
+        answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
+        answerList.addView(editText);
+
+        /* 2.4. Add container to container list*/
+        itemList.addView(item);
+
+//        /* 3 Wrong Sequence*/
+//        item = getLayoutInflater().inflate(R.layout.quest_item, itemList);
+//        ((TextView) (item.findViewById(R.id.questID))).setText("3.");
+//        ((TextView) (item.findViewById(R.id.questTitle))).setText("Third item");
+//        answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
+//        getLayoutInflater().inflate(R.layout.test_item, answerList);
+
+
+/***********************************************************************************************/
+
+
+
+//        //mMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//
+
+//
+//        for (int i = 0; i < mQuestions.size(); i++) {
+//            // Inflate question title
+//            QuizQuestion question = mQuestions.get(i);
+//
+//            QuestItemBinding itemBinding = DataBindingUtil.inflate(getLayoutInflater(),
+//                    R.layout.quest_item, mMainBinding.layoutQuestList, true);
+//            itemBinding.questID.setText(String.format(getString(R.string.formatQuestID), i + 1));
+//            itemBinding.questTitle.setText(question.getQuestion());
+
+//            for (QuestAnswer answer : question) {
+//                ViewGroup vg = (ViewGroup) item.findViewById(R.id.layoutAnswers);
+//                getLayoutInflater().inflate(R.layout.quest_input_item, vg);
+//            }
+
+
+//            // Specify container where answers to be added
+//            ViewGroup answerContainer = itemBinding.layoutAnswers;
+//            boolean isRadio = false;
+//            if (question instanceof QuizQuestionRadio) {
+//                answerContainer = itemBinding.radioGroup;
+//                isRadio = true;
+//            } else {
+//
+//            }
+//
+//            // Inflate answers
+//            for (QuestAnswer answer : question) {
+//                if (answer instanceof QuestAnswerString) {
+//                    QuestInputItemBinding answerBinding = DataBindingUtil.inflate(getLayoutInflater(),
+//                            R.layout.quest_input_item, answerContainer, true);
+//                    answerBinding.inputTextView.setText("");
+//                } else {
+//                    if (isRadio) {
+//                        QuestRadioItemBinding answerBinding = DataBindingUtil.inflate(getLayoutInflater(),
+//                                R.layout.quest_radio_item, answerContainer, true);
+//                        answerBinding.radioButton.setText(answer.getGuess());
+//                    } else {
+//                        QuestCheckItemBinding answerBinding = DataBindingUtil.inflate(getLayoutInflater(),
+//                                R.layout.quest_check_item, answerContainer, true);
+//                        answerBinding.checkbox.setText(answer.getGuess());
+//                    }
+//                }
+//            }
+//        }
+    }
+
+    private void loadTestQuestions() {
+        mQuestions.clear();
+
+        QuizQuestion question = new QuizQuestion("Input the result of the expression 2+2 in the input field below.");
+        question.addAnswer(new QuestAnswerString("4", ""));
+        mQuestions.add(question);
+
+        question = new QuizQuestionRadio("Select one of the options below.");
+        question.addAnswer(new QuestAnswerBoolean(true, "First option"));
+        question.addAnswer(new QuestAnswerBoolean(false, "Second option"));
+        question.addAnswer(new QuestAnswerBoolean(false, "Third option"));
+        mQuestions.add(question);
+
+        for (int i = 0; i < 10; i++) {
+            question = new QuizQuestion("Select none, one or more of the options below.");
+            question.addAnswer(new QuestAnswerBoolean(true, "First option"));
+            question.addAnswer(new QuestAnswerBoolean(false, "Second option"));
+            question.addAnswer(new QuestAnswerBoolean(true, "Third option"));
+            mQuestions.add(question);
+        }
     }
 }

@@ -6,13 +6,15 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:background="@drawable/blackboard">
+        tools:background="@drawable/blackboard"
+        tools:layout_height="300dp">
 
         <TextView
             android:id="@+id/questID"
             style="@style/QuestionTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="1."
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1." />
@@ -22,6 +24,7 @@
             style="@style/QuestionTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="Quest Title"
             app:layout_constraintLeft_toRightOf="@+id/questID"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,11 +34,14 @@
             android:id="@+id/layoutAnswers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/quiz_item_horz_margin"
+            android:layout_marginRight="@dimen/quiz_item_horz_margin"
+            android:layout_marginTop="0dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/spacer"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/questTitle">
+            app:layout_constraintTop_toBottomOf="@+id/questTitle"
+            tools:layout_height="100dp">
 
         </LinearLayout>
 
@@ -43,13 +49,17 @@
             android:id="@+id/spacer"
             android:layout_width="0dp"
             android:layout_height="4dp"
-            android:layout_margin="8dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="@dimen/quiz_item_horz_margin"
+            android:layout_marginRight="@dimen/quiz_item_horz_margin"
+            android:layout_marginTop="0dp"
             android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutAnswers"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_height="25dp" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
