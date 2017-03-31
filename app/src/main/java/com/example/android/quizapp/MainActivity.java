@@ -22,9 +22,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 
 import com.example.android.quizapp.databinding.ActivityMainBinding;
 
@@ -45,41 +43,54 @@ public class MainActivity extends AppCompatActivity {
 /***********************************************************************************************/
         setContentView(R.layout.activity_main);
 
+        /* Inflate the Layout of the Questions*/
         LinearLayout itemList = (LinearLayout) findViewById(R.id.layoutQuestList);
 
-        /* 1 */
-        EditText editText = (EditText) getLayoutInflater().inflate(R.layout.test_item, null);
+        for (int i = 0; i < mQuestions.size(); i++) {
+            /* Inflate Question Item View */
+            View item = getLayoutInflater().inflate(R.layout.quest_item, itemList, false);
 
-        View item = getLayoutInflater().inflate(R.layout.quest_item, null);
-        LinearLayout answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
-        answerList.addView(editText);
+            /* Update Question Item Title and ID */
+            QuizQuestion question = mQuestions.get(i);
+            ((TextView) (item.findViewById(R.id.questID))).setText(
+                    String.format(getString(R.string.formatQuestID), i + 1));
+            ((TextView) (item.findViewById(R.id.questTitle))).setText(question.getQuestion());
 
-        itemList.addView(item);
+            /* Get reference to the Layout of answers */
+            LinearLayout answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
 
-        /* 2. Right Sequence */
-        /* 2.1. Inflate row */
-        editText = (EditText) getLayoutInflater().inflate(R.layout.test_item, null);
+            /* Get reference to subLayout for radio buttons */
+            RadioGroup radioAnswers = (RadioGroup) answerList.findViewById(R.id.radioAnswers);
 
-        /* 2.2. Inflate row container*/
-        item = getLayoutInflater().inflate(R.layout.quest_item, null);
-        ((TextView) (item.findViewById(R.id.questID))).setText("2.");
-        ((TextView) (item.findViewById(R.id.questTitle))).setText("Second item");
+            /* Inflate Answers into the layout of answers */
+            int ansCounter = 0;
+            for (QuestAnswer answer : question) {
+                /* Inflate view type depending on answer and question type */
+                View ansView;
+                if (answer instanceof QuestAnswerString) {
+                    ansView = getLayoutInflater().inflate(
+                            R.layout.quest_input_item, answerList, false);
+                    ((EditText) ansView).setText(answer.getGuess());
+                    answerList.addView(ansView);
+                } else {
+                    if (question instanceof QuizQuestionRadio) {
+                        ansView = getLayoutInflater().inflate(
+                                R.layout.quest_radio_item, radioAnswers, false);
+                        ansView.setId(++ansCounter);
+                        ((RadioButton) ansView).setText(answer.getGuess());
+                        radioAnswers.addView(ansView);
+                    } else {
+                        ansView = getLayoutInflater().inflate(
+                                R.layout.quest_check_item, answerList, false);
+                        ((CheckBox) ansView).setText(answer.getGuess());
+                        answerList.addView(ansView);
+                    }
+                }
+            }
 
-        /* 2.3. Add row to row container*/
-        answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
-        answerList.addView(editText);
-
-        /* 2.4. Add container to container list*/
-        itemList.addView(item);
-
-//        /* 3 Wrong Sequence*/
-//        item = getLayoutInflater().inflate(R.layout.quest_item, itemList);
-//        ((TextView) (item.findViewById(R.id.questID))).setText("3.");
-//        ((TextView) (item.findViewById(R.id.questTitle))).setText("Third item");
-//        answerList = (LinearLayout) item.findViewById(R.id.layoutAnswers);
-//        getLayoutInflater().inflate(R.layout.test_item, answerList);
-
-
+            /* Finally inflate Question Item into the Layout of the Questions*/
+            itemList.addView(item);
+        }
 /***********************************************************************************************/
 
 

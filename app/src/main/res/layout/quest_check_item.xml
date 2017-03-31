@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
 
-    <CheckBox
-        android:id="@+id/checkbox"
-        style="@style/QuestionRow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/_AppTheme"
-        tools:background="@drawable/blackboard"
-        tools:text="CheckBox" />
-</layout>
+    android:id="@+id/checkbox"
+    style="@style/QuestionRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/_AppTheme"
+    tools:background="@drawable/blackboard"
+    tools:text="CheckBox" />
