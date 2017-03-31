@@ -7,3 +7,5 @@ It also expose some additional features:
 - DataBinding for processing View events
 - ConstraintLayout
 - Dynamically building view hierarchy.
+
+![alt tag](https://raw.githubusercontent.com/RuslanPrimak/QuizApp/master/Quiz_2.jpg)
