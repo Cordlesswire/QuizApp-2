@@ -109,23 +109,6 @@
             tools:layout_constraintBottom_creator="1"
             tools:layout_constraintTop_creator="1" />
 
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/blackboard"
-            app:layout_constraintBottom_toTopOf="@+id/imageViewBottomBorder"
-            app:layout_constraintLeft_toRightOf="@+id/imageViewLeftBorder"
-            app:layout_constraintRight_toLeftOf="@+id/imageViewRightBorder"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder">
-
-            <LinearLayout
-                android:id="@+id/layoutQuestList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
-        </ScrollView>
-
         <ImageView
             android:id="@+id/imageViewQuizTitle"
             android:layout_width="wrap_content"
@@ -142,6 +125,37 @@
             tools:ignore="ContentDescription"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/blackboard"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewBottomBorder"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/imageViewLeftBorder"
+            app:layout_constraintRight_toLeftOf="@+id/imageViewRightBorder"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewTopBorder"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:id="@+id/layoutQuestList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/buttonCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/button_check"
+            android:onClick="checkAnswers"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewBottomBorder"
+            app:layout_constraintLeft_toLeftOf="@+id/imageViewBottomBorder"
+            app:layout_constraintRight_toRightOf="@+id/imageViewBottomBorder" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

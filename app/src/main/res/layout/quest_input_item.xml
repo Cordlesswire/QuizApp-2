@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EditText xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    android:id="@+id/inputTextView"
-    style="@style/QuestionRow"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    tools:background="@drawable/blackboard"
-    tools:text="Input text" />
+    <data>
+
+        <import type="com.example.android.quizapp.QuestAnswer" />
+
+        <variable
+            name="answer"
+            type="QuestAnswer" />
+    </data>
+
+    <EditText
+        android:id="@+id/inputTextView"
+        style="@style/QuestionRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@{answer.guess}"
+        android:onTextChanged="@{(text, s, b, a) -> answer.setUserAnswer(text.toString())}"
+        tools:background="@drawable/blackboard"
+        tools:text="Input text" />
+</layout>

@@ -21,10 +21,15 @@ package com.example.android.quizapp;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 
 import com.example.android.quizapp.databinding.ActivityMainBinding;
+import com.example.android.quizapp.databinding.QuestCheckItemBinding;
+import com.example.android.quizapp.databinding.QuestInputItemBinding;
+import com.example.android.quizapp.databinding.QuestRadioItemBinding;
 
 import java.util.ArrayList;
 
@@ -66,24 +71,23 @@ public class MainActivity extends AppCompatActivity {
             int ansCounter = 0;
             for (QuestAnswer answer : question) {
                 /* Inflate view type depending on answer and question type */
-                View ansView;
                 if (answer instanceof QuestAnswerString) {
-                    ansView = getLayoutInflater().inflate(
-                            R.layout.quest_input_item, answerList, false);
-                    ((EditText) ansView).setText(answer.getGuess());
-                    answerList.addView(ansView);
+                    QuestInputItemBinding ansBinding =
+                            QuestInputItemBinding.inflate(getLayoutInflater(), answerList, false);
+                    ansBinding.setAnswer(answer);
+                    answerList.addView(ansBinding.getRoot());
                 } else {
                     if (question instanceof QuizQuestionRadio) {
-                        ansView = getLayoutInflater().inflate(
-                                R.layout.quest_radio_item, radioAnswers, false);
-                        ansView.setId(++ansCounter);
-                        ((RadioButton) ansView).setText(answer.getGuess());
-                        radioAnswers.addView(ansView);
+                        QuestRadioItemBinding ansBinding =
+                                QuestRadioItemBinding.inflate(getLayoutInflater(), radioAnswers, false);
+                        ansBinding.radioButton.setId(++ansCounter);
+                        ansBinding.setAnswer(answer);
+                        radioAnswers.addView(ansBinding.getRoot());
                     } else {
-                        ansView = getLayoutInflater().inflate(
-                                R.layout.quest_check_item, answerList, false);
-                        ((CheckBox) ansView).setText(answer.getGuess());
-                        answerList.addView(ansView);
+                        QuestCheckItemBinding ansBinding =
+                                QuestCheckItemBinding.inflate(getLayoutInflater(), answerList, false);
+                        ansBinding.setAnswer(answer);
+                        answerList.addView(ansBinding.getRoot());
                     }
                 }
             }
@@ -149,21 +153,40 @@ public class MainActivity extends AppCompatActivity {
         mQuestions.clear();
 
         QuizQuestion question = new QuizQuestion("Input the result of the expression 2+2 in the input field below.");
-        question.addAnswer(new QuestAnswerString("4", ""));
+        question.addAnswer(new QuestAnswerString("4", "Guess who?"));
         mQuestions.add(question);
 
         question = new QuizQuestionRadio("Select one of the options below.");
         question.addAnswer(new QuestAnswerBoolean(true, "First option"));
-        question.addAnswer(new QuestAnswerBoolean(false, "Second option"));
-        question.addAnswer(new QuestAnswerBoolean(false, "Third option"));
         mQuestions.add(question);
 
-        for (int i = 0; i < 10; i++) {
-            question = new QuizQuestion("Select none, one or more of the options below.");
-            question.addAnswer(new QuestAnswerBoolean(true, "First option"));
-            question.addAnswer(new QuestAnswerBoolean(false, "Second option"));
-            question.addAnswer(new QuestAnswerBoolean(true, "Third option"));
-            mQuestions.add(question);
+        question = new QuizQuestion("Select none, one or more of the options below.");
+        question.addAnswer(new QuestAnswerBoolean(true, "First option"));
+        mQuestions.add(question);
+
+//        question = new QuizQuestionRadio("Select one of the options below.");
+//        question.addAnswer(new QuestAnswerBoolean(true, "First option"));
+//        question.addAnswer(new QuestAnswerBoolean(false, "Second option"));
+//        question.addAnswer(new QuestAnswerBoolean(false, "Third option"));
+//        mQuestions.add(question);
+//
+//        for (int i = 0; i < 10; i++) {
+//            question = new QuizQuestion("Select none, one or more of the options below.");
+//            question.addAnswer(new QuestAnswerBoolean(true, "First option"));
+//            question.addAnswer(new QuestAnswerBoolean(false, "Second option"));
+//            question.addAnswer(new QuestAnswerBoolean(true, "Third option"));
+//            mQuestions.add(question);
+//        }
+    }
+
+    public void checkAnswers(View view) {
+        int correct = 0;
+        for (QuizQuestion quest : mQuestions) {
+            if (quest.isCorrect()) correct++;
         }
+
+        Toast.makeText(getApplicationContext(),
+                String.format(getString(R.string.toast_results), correct, mQuestions.size()),
+                Toast.LENGTH_SHORT).show();
     }
 }

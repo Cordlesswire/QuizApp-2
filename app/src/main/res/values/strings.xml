@@ -1,7 +1,7 @@
 
 <resources>
     <string name="app_name">Quiz App</string>
-    <string name="question_1">Specify right ways to obtain reference of TextView with "text_view_score" ID.</string>
-    <string name="str_test">String #</string>
-    <string name="formatQuestID">%d.</string>
+    <string name="formatQuestID">%1$d.</string>
+    <string name="button_check">Check</string>
+    <string name="toast_results">You answered %1$d of %2$d questions!</string>
 </resources>
