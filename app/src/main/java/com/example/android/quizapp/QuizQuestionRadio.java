@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 3/30/17 11:18 PM
+ * Last modified 3/31/17 8:36 PM
  */
 
 package com.example.android.quizapp;
 
 
-public class QuizQuestionRadio extends QuizQuestion{
+class QuizQuestionRadio extends QuizQuestion{
 
-    public QuizQuestionRadio(String question) {
+    QuizQuestionRadio(String question) {
         super(question);
     }
 }

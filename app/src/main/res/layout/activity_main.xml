@@ -109,23 +109,6 @@
             tools:layout_constraintBottom_creator="1"
             tools:layout_constraintTop_creator="1" />
 
-        <ImageView
-            android:id="@+id/imageViewQuizTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginEnd="96dp"
-            android:layout_marginLeft="96dp"
-            android:layout_marginRight="96dp"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerTL"
-            app:layout_constraintRight_toRightOf="@+id/imageViewCornerTR"
-            app:layout_constraintTop_toTopOf="@+id/imageViewTopBorder"
-            app:srcCompat="@drawable/quiz_title"
-            tools:ignore="ContentDescription"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1" />
-
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -143,6 +126,23 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"></LinearLayout>
         </ScrollView>
+
+        <ImageView
+            android:id="@+id/imageViewQuizTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginLeft="96dp"
+            android:layout_marginRight="96dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/imageViewCornerTL"
+            app:layout_constraintRight_toRightOf="@+id/imageViewCornerTR"
+            app:layout_constraintTop_toTopOf="@+id/imageViewTopBorder"
+            app:srcCompat="@drawable/quiz_title"
+            tools:ignore="ContentDescription"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
         <Button
             android:id="@+id/buttonCheck"

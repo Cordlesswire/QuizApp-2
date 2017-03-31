@@ -22,9 +22,9 @@ package com.example.android.quizapp;
  * Class defines an answer for a question
  */
 public class QuestAnswer<T> {
-    private final T mRightAnswer; // Right answer expected
+    final T mRightAnswer; // Right answer expected
     private final String mGuess; // Guess describing the answer
-    private T mUserAnswer;
+    T mUserAnswer;
 
     /**
      * Creates the answer with Guess and RightAnswer

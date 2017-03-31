@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 3/30/17 9:29 PM
+ * Last modified 3/31/17 8:36 PM
  */
 
 package com.example.android.quizapp;
@@ -24,11 +24,11 @@ import java.util.Iterator;
 /**
  * Class specification for Quiz Question
  */
-public class QuizQuestion implements Iterable<QuestAnswer> {
+class QuizQuestion implements Iterable<QuestAnswer> {
     private String mQuestion;
     private ArrayList<QuestAnswer> mAnswers;
 
-    public QuizQuestion(String question) {
+    QuizQuestion(String question) {
         mQuestion = question;
         mAnswers = new ArrayList<>();
     }
@@ -37,7 +37,7 @@ public class QuizQuestion implements Iterable<QuestAnswer> {
      * Add answer version for the question
      * @param answer - a version of an answer
      */
-    public void addAnswer(QuestAnswer answer) {
+    void addAnswer(QuestAnswer answer) {
         mAnswers.add(answer);
     }
 
@@ -45,13 +45,13 @@ public class QuizQuestion implements Iterable<QuestAnswer> {
      * Gets question string
      * @return -
      */
-    public String getQuestion() {
+    String getQuestion() {
         return mQuestion;
     }
 
     /**
      * Checks for the question to be answered correctly
-     * @return
+     * @return -
      */
     public boolean isCorrect() {
         boolean result = true;

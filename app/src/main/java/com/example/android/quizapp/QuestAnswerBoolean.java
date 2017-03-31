@@ -18,14 +18,19 @@
 
 package com.example.android.quizapp;
 
-public class QuestAnswerBoolean extends QuestAnswer<Boolean> {
+class QuestAnswerBoolean extends QuestAnswer<Boolean> {
     /**
      * Creates the answer with Guess and RightAnswer
      *
      * @param rightAnswer -
      * @param guess       -
      */
-    public QuestAnswerBoolean(Boolean rightAnswer, String guess) {
+    QuestAnswerBoolean(Boolean rightAnswer, String guess) {
         super(rightAnswer, guess);
+    }
+
+    @Override
+    public boolean isCorrect() {
+        return mRightAnswer.equals(mUserAnswer) || (!mRightAnswer && !Boolean.TRUE.equals(mUserAnswer));
     }
 }

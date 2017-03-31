@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 3/30/17 11:53 PM
+ * Last modified 3/31/17 8:36 PM
  */
 
 package com.example.android.quizapp;
 
-public class QuestAnswerString extends QuestAnswer<String> {
+class QuestAnswerString extends QuestAnswer<String> {
 
     /**
      * Creates the answer with Guess and RightAnswer
@@ -26,7 +26,7 @@ public class QuestAnswerString extends QuestAnswer<String> {
      * @param rightAnswer -
      * @param guess       -
      */
-    public QuestAnswerString(String rightAnswer, String guess) {
+    QuestAnswerString(String rightAnswer, String guess) {
         super(rightAnswer, guess);
     }
 }
